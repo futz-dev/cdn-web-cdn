@@ -22,8 +22,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           export version=$(jq -r .version sly.json)
-          npx gomplate -f index.html > index.html
-        working-directory: public_html
+          npx gomplate -f public_html/index.html > public_html/index.html
         # TODO Bump version
       - run: aws s3 sync . "s3://$BUCKET_NAME"
         working-directory: public_html
