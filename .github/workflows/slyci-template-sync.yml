@@ -6,8 +6,10 @@
 name: Scaffoldly Template Sync
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  workflow_run:
+    workflows: ["Live Deploy"]
+    types:
+      - completed
 env:
   SCAFFOLDLY_GITHUB_TOKEN: ${{ secrets.SCAFFOLDLY_TEMPLATE_SYNC_GITHUB_TOKEN }}
   SCAFFOLDLY_TARGET_REPO: scaffoldly/web-cdn-template
