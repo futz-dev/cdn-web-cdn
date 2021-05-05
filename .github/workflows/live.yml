@@ -1,9 +1,7 @@
-name: Nonlive Deploy
+name: Live Deploy
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   AWS_PARTITION: ${{ secrets.NONLIVE_AWS_PARTITION }}
